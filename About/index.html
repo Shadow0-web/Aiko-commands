@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" href="img/bot-icon.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #000000, #333333, #000000, #000000, #000000);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .osos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .oso {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: moveroso linear infinite;
+        }
+        @keyframes moveroso {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100vw);
+            }
+        }
+        .icon1 {
+            width: 200px; 
+            height: 200px;
+            border-radius: 50%; 
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); 
+            overflow: hidden; 
+            position: relative;
+            z-index: 1; 
+        }
+
+        .icon1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .botones {
+            margin-top: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            z-index: 1;
+        }
+        .osuna {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .osuna:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+        .dos {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .dos img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+
+        .dos:hover {
+            background-color: #cccccc;
+            transform: scale(1.1);
+        }
+        .arribdos {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .arriba {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .arriba:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+        .info {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1;
+        }
+        .info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="osos" id="osos"></div>
+
+    <div class="arribdos">
+        <a href="#" class="arriba">Inicio</a>
+        <a href="#" class="arriba">Sobre</a>
+    </div>
+
+    <div class="icon1">
+        <img src="img/iako.png" alt="Bot Divertido">  
+    </div>
+
+    <div class="info">
+        <h1>Bot Divertido</h1>
+        <p>
+            ¡Hola! Soy **Bot Divertido**, un bot diseñado para traer alegría y entretenimiento a tus servidores de Discord. 
+            Mi objetivo es hacer que tus conversaciones sean más dinámicas y divertidas con funciones únicas y emocionantes.
+            ¡Invítame a tu servidor y descubre todo lo que puedo hacer por ti!
+        </p>
+    </div>
+
+    <div class="botones">
+        <a href="#" class="osuna">Invitar a tu servidor</a>
+        <button class="dos">
+            <img src="img/dcblack.png" alt="Icono">
+        </button>
+    </div>
+
+    <script>
+        const ososContainer = document.getElementById("osos");
+        function uoso() {
+            const oso = document.createElement("div");
+            oso.classList.add("oso");
+            const tamaño = Math.random() * 3 + 1;
+            oso.style.width = `${tamaño}px`;
+            oso.style.height = `${tamaño}px`;
+            oso.style.left = `${Math.random() * 100}vw`;
+            oso.style.top = `${Math.random() * 100}vh`;
+            const duracion = Math.random() * 10 + 5; 
+            oso.style.animationDuration = `${duracion}s`;
+            const retraso = Math.random() * -10;
+            oso.style.animationDelay = `${retraso}s`;
+
+            ososContainer.appendChild(oso);
+        }
+        for (let i = 0; i < 200; i++) {
+            uoso();
+        }
+    </script>
+    <script>
+        document.getElementById('boton-retroceso')?.addEventListener('click', function() {
+       window.history.back();
+   });
+   
+   document.addEventListener('keydown', function(e) {
+       if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+           e.preventDefault();
+       }
+   });
+   
+   document.addEventListener('contextmenu', function(e) {
+       e.preventDefault();
+   });
+   
+   document.addEventListener('keydown', function(event) {
+       if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+           event.preventDefault();
+           alert('Guardar esta página está deshabilitado.');
+       }
+   });
+
+   document.addEventListener('keydown', function(event) {
+
+   if (event.key === "F12") {
+       event.preventDefault();
+       alert('La tecla F12 está deshabilitada.');
+   }
+
+   if (event.ctrlKey && event.shiftKey && event.key === "I") {
+       event.preventDefault();
+       alert('Ctrl+Shift+I está deshabilitado.');
+   }
+
+   if (event.ctrlKey && event.shiftKey && event.key === "J") {
+       event.preventDefault();
+       alert('Ctrl+Shift+J está deshabilitado.');
+   }
+
+   if (event.ctrlKey && event.key === "u") {
+       event.preventDefault();
+       alert('Ctrl+U está deshabilitado.');
+   }
+});   
+
+
+</script>
+</body>
+</html>
